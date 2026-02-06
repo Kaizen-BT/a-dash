@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["textual>=7.5.0"]
+dependencies = ["sqlmodel>=0.0.32", "textual>=7.5.0"]
 
 [dependency-groups]
 dev = ["textual-dev>=1.8.0"]
