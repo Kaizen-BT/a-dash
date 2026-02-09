@@ -1,7 +1,7 @@
 """Database Package.
 
-This package provides the QueryDriver to simplify database actions
-facilitated by TUI interactions
+This package provides the QueryDriver to facilitate Database
+connection and common query operations
 """
 
 from ._query_driver import QueryDriver
