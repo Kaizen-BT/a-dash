@@ -1,7 +1,9 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+
+from ._helpers import BaseSchema
 
 
-class Project(SQLModel, table=True):
+class Project(BaseSchema, table=True):
     """Project entity.
 
     This is the main entity of interest and OWNS tasks and milestones
@@ -9,5 +11,3 @@ class Project(SQLModel, table=True):
 
     # TODO: Fill in using the apporpriate columns
     id: int | None = Field(default=None, primary_key=True)
-    title: str | None = "A nice project"
-    description: str | None = "A cool description"
