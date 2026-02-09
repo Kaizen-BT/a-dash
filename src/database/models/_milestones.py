@@ -1,7 +1,9 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+
+from ._helpers import BaseSchema
 
 
-class Milestone(SQLModel, table=True):
+class Milestone(BaseSchema, table=True):
     """Milestone entity.
 
     Milestones represent a major progress point of a Project. They
@@ -10,5 +12,3 @@ class Milestone(SQLModel, table=True):
 
     # TODO: Fill in using the apporpriate columns
     id: int | None = Field(default=None, primary_key=True)
-    title: str | None = "A project Milestone"
-    description: str | None = "Ohhhh milestoneeeeee"

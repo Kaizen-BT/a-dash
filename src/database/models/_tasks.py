@@ -1,7 +1,9 @@
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+
+from ._helpers import BaseSchema
 
 
-class Task(SQLModel, table=True):
+class Task(BaseSchema, table=True):
     """Task entity.
 
     All tasks belong to a project and optionally to a milestone of the same
@@ -10,5 +12,3 @@ class Task(SQLModel, table=True):
 
     # TODO: Fill in using the apporpriate columns
     id: int | None = Field(default=None, primary_key=True)
-    title: str | None = "A nice project"
-    description: str | None = "Oh no task due soon"
