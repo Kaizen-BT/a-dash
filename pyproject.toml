@@ -1,5 +1,5 @@
 [project]
-name = "alens-dashboard"
+name = "a-dash"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,11 +7,7 @@ requires-python = ">=3.11"
 dependencies = ["sqlmodel>=0.0.32", "textual>=7.5.0"]
 
 [dependency-groups]
-dev = [
-    "basedpyright>=1.37.4",
-    "pre-commit>=4.5.1",
-    "textual-dev>=1.8.0",
-]
+dev = ["basedpyright>=1.37.4", "pre-commit>=4.5.1", "textual-dev>=1.8.0"]
 
 
 [tool.ruff]
