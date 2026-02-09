@@ -6,27 +6,25 @@ from .models import Project
 
 
 class QueryDriver:
-    """QueryDriver to facilitate database connection and query operations"""
+    """QueryDriver to facilitate database connection and query operations."""
 
     # TODO: Improve documentation
     # TODO: Check if SQLModel has an async engine
 
     def __init__(self, db_path: str) -> None:
-        """
-        Connect to database and create tables
-        """
+        """Connect to database and create tables."""
         self._engine = create_engine(db_path)
         SQLModel.metadata.create_all(self._engine)
 
     def get_all_projects(self) -> Sequence[Project]:
-        """
-        Retrieve all projects from the database
+        """Retrieve all projects from the database.
 
         All projects returned are those available during the instance the session
         was created
 
         Returns:
             Sequence[Project]: Snapshot of all the projects during function call
+
         """
         with Session(self._engine) as session:
             return session.exec(select(Project)).all()
