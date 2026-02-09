@@ -10,6 +10,7 @@ class QueryDriver:
     """
 
     # TODO: Improve documentation
+    # TODO: Check if SQLModel has an async engine
 
     def __init__(self, db_path: str) -> None:
         self._engine = create_engine(db_path)
