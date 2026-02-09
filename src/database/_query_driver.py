@@ -14,16 +14,16 @@ class QueryDriver:
     def __init__(self, db_path: str) -> None:
         """
         Connect to database and create tables
-
-        Args:
-            db_path (str): path to the database
         """
         self._engine = create_engine(db_path)
         SQLModel.metadata.create_all(self._engine)
 
     def get_all_projects(self) -> Sequence[Project]:
         """
-        Instantiates a session to fetch all projects closed upon function return
+        Retrieve all projects from the database
+
+        All projects returned are those available during the instance the session
+        was created
 
         Returns:
             Sequence[Project]: Snapshot of all the projects during function call
