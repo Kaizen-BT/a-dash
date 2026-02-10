@@ -23,7 +23,7 @@ class QueryDriver:
         was created
 
         Returns:
-            Sequence[Project]: Snapshot of all the projects during function call
+            Sequence[ProjectSelect]: Snapshot of all the projects during function call
 
         """
         with Session(self._engine) as session:

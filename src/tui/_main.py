@@ -1,9 +1,3 @@
-"""Dashboard Page.
-
-This is the page users will see upon launch and is responsible for injecting
-the QueryDriver into the Controllers
-"""
-
 from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header
 
@@ -23,10 +17,10 @@ class Dashboard(App):
     TITLE = "Alens Dashboard"
     SUB_TITLE = "My mini dashboard"
 
-    def __init__(self, query_driver: QueryDriver) -> None:  # noqa: D107
+    def __init__(self, query_driver: QueryDriver) -> None:
         super().__init__()
         self.query_driver = query_driver
 
-    def compose(self) -> ComposeResult:  # noqa: D102
+    def compose(self) -> ComposeResult:
         yield Header()
         yield Footer()

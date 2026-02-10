@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from database import QueryDriver
-from tui.main import Dashboard
+from tui import Dashboard
 
 if __name__ == "__main__":
     querydriver = QueryDriver("sqlite://")
