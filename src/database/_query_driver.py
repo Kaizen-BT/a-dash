@@ -2,7 +2,7 @@ from collections.abc import Sequence
 
 from sqlmodel import Session, SQLModel, create_engine, select
 
-from .models import Project
+from .models import Project, ProjectSelect
 
 
 class QueryDriver:
@@ -16,7 +16,7 @@ class QueryDriver:
         self._engine = create_engine(db_path)
         SQLModel.metadata.create_all(self._engine)
 
-    def get_all_projects(self) -> Sequence[Project]:
+    def get_all_projects(self) -> Sequence[ProjectSelect]:
         """Retrieve all projects from the database.
 
         All projects returned are those available during the instance the session
@@ -27,7 +27,8 @@ class QueryDriver:
 
         """
         with Session(self._engine) as session:
-            return session.exec(select(Project)).all()
+            projects_db = session.exec(select(Project)).all()
+            return [ProjectSelect.model_validate(p) for p in projects_db]
 
     def _create_test_data(self) -> None:
         with Session(self._engine) as session:
