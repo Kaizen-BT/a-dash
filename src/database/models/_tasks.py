@@ -3,6 +3,21 @@ from sqlmodel import Field
 from ._helpers import BaseSchema
 
 
+class TaskCreate(BaseSchema):
+    """DTO from TUI to QueryDriver."""
+
+    pass
+
+
+class TaskSelect(BaseSchema):
+    """DTO from QueryDriver to TUI.
+
+    All Tasks stored in the database HAVE primary keys
+    """
+
+    id: int = Field(primary_key=True)
+
+
 class Task(BaseSchema, table=True):
     """Task entity.
 
